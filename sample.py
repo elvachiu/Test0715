@@ -1,5 +1,6 @@
 from flask import Flask, request, abort
 import os
+import random
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -49,7 +50,7 @@ def handle_message(event):
     sticker_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     index_id = random.randint(0, len(sticker_ids) - 1)
     sticker_id = str(sticker_ids[index_id])
-    message = StickerSendMessage(package_id = '1', sticker_id = '1')
+    message = StickerSendMessage(package_id, sticker_id)
     line_bot_api.reply_message(event.reply_token, message)
 
 
