@@ -41,12 +41,14 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # 回應使用者輸入的話
+    '''
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
 #    message = ImageSendMessage(original_content_url = 'http://example.com/original.jpg',
 #                           preview_image_url = 'https://example.com/preview.jpg')
 #    line_bot_api.reply_message(event.reply_token, message)
+'''
     message = StickerSendMessage(package_id = '1', sticker_id = '1')
     line_bot_api.reply_message(event.reply_token, message)
 
